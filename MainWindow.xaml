@@ -1,0 +1,40 @@
+﻿<Window x:Class="Exercise2b.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Super Mario" Width="1280" Height="800" Loaded="WindowLoaded" Closing="WindowClosing">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e"/>
+        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f"/>
+        <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2"/>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Name="layoutGrid" Margin="0 0 0 0">
+        <Grid>
+            <Image Opacity="0" x:Name ="Image" />
+            <Canvas Margin="0">
+                <Canvas.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF040800" Offset="0.238" />
+                        <GradientStop Color="#FF46BC00" Offset="1" />
+                        <GradientStop Color="#FF1747B2" Offset="0.811" />
+                    </LinearGradientBrush>
+                </Canvas.Background>
+            </Canvas>
+            <Image Opacity="1.0" x:Name ="MaskedColor" Margin="0,0,0,0"/>
+            <Canvas Margin="0" x:Name="playfield"/>
+            <Label Content="Score: 0" Name="Label_Score" HorizontalAlignment="Left" Margin="7,114,0,0" VerticalAlignment="Top" FontSize="70" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Label.Foreground>
+            </Label>
+            <Label Name="Label_Lives" Content="Lives: 5" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" FontSize="70" FontWeight="Bold" Foreground="#FFF0F0F0"/>
+            <Label Opacity="0" x:Name="Label_CurPoints" Content="+50" HorizontalAlignment="Left" Margin="562,13,0,0" VerticalAlignment="Top" FontSize="60" Foreground="#FFF0F0F0"/>
+            <Label Opacity="0" Name="Label_Gameover" Content="Game Over" HorizontalAlignment="Center" VerticalAlignment="Center" Height="760" Width="1272" Background="#87000000" Foreground="#FFD1F13D" FontSize="200" FontWeight="Bold"/>
+        </Grid>
+
+    </Grid>
+</Window>
